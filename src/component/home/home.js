@@ -121,9 +121,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <NotificationBar
+        <NotificationBar
           total={this.state.productList.length}
-        ></NotificationBar> */}
+        ></NotificationBar>
         <div style={{ textAlign: "center" }}>
           <button className="addbutton button1" onClick={this.addProductClick}>
             Add Product

@@ -20,7 +20,7 @@ class EditProduct extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.history.location.state);
+    console.log(this.props.history);
     let tempState = this.props.history.location.state;
     this.setState({
       id: tempState.id,
@@ -61,127 +61,125 @@ class EditProduct extends Component {
 
   render() {
     return (
-        <div className="container-main">
-          <header id="addProduct-header">EDIT PRODUCT</header>
-          <form onSubmit={this.contactSubmit}>
+      <div className="container-main">
+        <header id="addProduct-header">EDIT PRODUCT</header>
+        <form onSubmit={this.contactSubmit}>
+          <Row>
+            <Col>
+              <label htmlFor="categoryname">Category Name:</label>
 
-            <Row>
-              <Col>
-                <label htmlFor="categoryname">Category Name:</label>
-              
-                <select
-                  name="categoryname"
-                  className="input-select"
+              <select
+                name="categoryname"
+                className="input-select"
+                onChange={this.changeHandler}
+                value={this.state.categoryname}
+              >
+                <option>Electronics</option>
+                <option>Accessories</option>
+                <option>Clothing</option>
+              </select>
+            </Col>
+            <Col></Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Product Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="input-text"
+                  id="productname"
+                  name="productname"
+                  autoComplete="off"
+                  value={this.state.productname}
+                  placeholder="Enter Product Name.."
                   onChange={this.changeHandler}
-                  value={this.state.categoryname}
-                >
-                  <option>Electronics</option>
-                  <option>Accessories</option>
-                  <option>Clothing</option>
-                </select>
-                </Col>
-                <Col></Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Product Name</Form.Label>
-                  <Form.Control
-                   type="text"
-                   className="input-text"
-                   id="productname"
-                   name="productname"
-                   autoComplete="off"
-                   value={this.state.productname}
-                   placeholder="Enter Product Name.."
-                   onChange={this.changeHandler}
-                   title="Name should consists of letters and greater than length 3"
-                   required
-                  />
-                </Form.Group>
-              </Col>
+                  title="Name should consists of letters and greater than length 3"
+                  required
+                />
+              </Form.Group>
+            </Col>
 
-              <Col>
-                <Form.Group>
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    type="number"
-                    className="input-text"
-                    id="productprice"
-                    name="productprice"
-                    autoComplete="off"
-                    value={this.state.productprice}
-                    placeholder="Enter Product Price.."
-                    onChange={this.changeHandler}
-                    title="Price should be a number"
-                    required
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Quantity</Form.Label>
-                  <Form.Control
-                     type="number"
-                     className="input-text"
-                     id="productquantity"
-                     name="productquantity"
-                     autoComplete="off"
-                     value={this.state.productquantity}
-                     placeholder="Enter Product Quantity.."
-                     onChange={this.changeHandler}
-                     title="Quantity should be a number"
-                     required
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col>
-                <div>
-                  <label>Stock</label>
-                </div>
-                <select
-                  name="instock"
-                  className="input-select"
+            <Col>
+              <Form.Group>
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="number"
+                  className="input-text"
+                  id="productprice"
+                  name="productprice"
+                  autoComplete="off"
+                  value={this.state.productprice}
+                  placeholder="Enter Product Price.."
                   onChange={this.changeHandler}
-                  value={this.state.instock}
-                >
-                  <option>YES</option>
-                  <option>NO</option>
-                </select>
-              </Col>
-            </Row>
-              <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Image Url</Form.Label>
-                  <Form.Control
-                   type="text"
-                   className="input-text"
-                   id="img"
-                   name="img"
-                   autoComplete="off"
-                   value={this.state.img}
-                   placeholder="Enter imgUrl"
-                   onChange={this.changeHandler}
-                   title="url should be a link"
-                   required
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Button variant="outline-dark" type="submit" size="lg" block>
-                  Edit
-                </Button>
-              </Col>
-            </Row>
-          </form>
-          
-        </div>
+                  title="Price should be a number"
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control
+                  type="number"
+                  className="input-text"
+                  id="productquantity"
+                  name="productquantity"
+                  autoComplete="off"
+                  value={this.state.productquantity}
+                  placeholder="Enter Product Quantity.."
+                  onChange={this.changeHandler}
+                  title="Quantity should be a number"
+                  required
+                />
+              </Form.Group>
+            </Col>
+
+            <Col>
+              <div>
+                <label>Stock</label>
+              </div>
+              <select
+                name="instock"
+                className="input-select"
+                onChange={this.changeHandler}
+                value={this.state.instock}
+              >
+                <option>YES</option>
+                <option>NO</option>
+              </select>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Image Url</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="input-text"
+                  id="img"
+                  name="img"
+                  autoComplete="off"
+                  value={this.state.img}
+                  placeholder="Enter imgUrl"
+                  onChange={this.changeHandler}
+                  title="url should be a link"
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button variant="outline-dark" type="submit" size="lg" block>
+                Edit
+              </Button>
+            </Col>
+          </Row>
+        </form>
+      </div>
     );
   }
 }
